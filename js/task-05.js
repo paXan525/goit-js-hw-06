@@ -4,5 +4,9 @@ const nameLabel = document.getElementById('name-output');
 input.addEventListener('input', onInputFocus);
 
 function onInputFocus(event) {
-    nameLabel.textContent = event.currentTarget.value
+    if (event.currentTarget.value.length === 0) {
+        nameLabel.textContent = 'Anonymous';
+    } else {
+        nameLabel.textContent = event.currentTarget.value;
+    };
 };

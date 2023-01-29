@@ -7,15 +7,14 @@ const buttonEl = document.querySelector('.change-color');
 const colorCodeEl = document.querySelector('.color')
 
 buttonEl.addEventListener('click', changesBackgroundColors);
-buttonEl.addEventListener('click', addsColorCode);
 
 function changesBackgroundColors() {
-  bodyEl.style.backgroundColor = getRandomHexColor()
+  const randomColor = getRandomHexColor();
+  
+  bodyEl.style.backgroundColor = randomColor;
+  colorCodeEl.textContent = randomColor;
 };
 
-function addsColorCode() {
-  colorCodeEl.textContent = getRandomHexColor();
-}
 
 
 

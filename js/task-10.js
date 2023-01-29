@@ -15,12 +15,12 @@ function inputChange(event) {
   inputEl.setAttribute('count', Number(event.currentTarget.value))
   }
 
-  let baseboxSize = 30;
+let collectionOfBoxes = [];
+let baseboxSize = 30;
 
   function createBoxes() {
     let countBox = Number(inputEl.getAttribute('count'));
   
-
     for (let i = 0; i < countBox; i += 1) {
       baseboxSize += 10;
       const newBox = document.createElement('div');
@@ -29,16 +29,19 @@ function inputChange(event) {
       newBox.style.width = baseboxSize + 'px';
       newBox.style.margin = '10px';
       newBox.classList.add('new-box');
-      boxes.append(newBox);
+
+      collectionOfBoxes.push(newBox);
     }
+    boxesEl.append(...collectionOfBoxes);
   };
 
-  function destroyBox(events) {
+function destroyBox(events) {
     const allNewBoxes = document.querySelectorAll('.new-box');
 
     for (let allNewBox of allNewBoxes) {
-      boxes.removeChild(allNewBox);
+      boxesEl.removeChild(allNewBox);
     }
-    baseboxSize = 30;
+  collectionOfBoxes = [];
+  baseboxSize = 30;
   };
 
